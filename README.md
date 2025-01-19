@@ -6,5 +6,4 @@ This is a simple cpp program that adds github flavoured syntax highlighting to C
 *Original CppCoreGuidelines can be found at* https://github.com/isocpp/CppCoreGuidelines
 
 ## Run 
-    g++ .\add_syntax_higlighting.cpp -std=c++20
-    .\a.exe
+    g++ .\add_syntax_higlighting.cpp -std=c++20; .\a.exe
