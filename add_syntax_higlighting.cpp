@@ -1,21 +1,25 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include <vector>
 
-void test(const std::string &source_file, const std::string &dest_file) {
+int main() {
+  const std::string source_file{"CppCoreGuidelines.md"};
+  const std::string dest_file{"CppCoreGuidelinesWithHighlighting.md"};
+
   std::ifstream in_stream(source_file);
   std::ofstream out_stream(dest_file);
 
   if (!in_stream.is_open()) {
     std::cout << "failed to open " << source_file << '\n';
-    return;
+    return EXIT_FAILURE;
   }
+  std::cout << "opened " << source_file << " successfully\n";
 
   if (!out_stream.is_open()) {
     std::cout << "failed to open " << dest_file << '\n';
-    return;
+    return EXIT_FAILURE;
   }
+  std::cout << "opened " << dest_file << " successfully\n";
 
   bool is_codeblock_started{false};
   std::string prev_line;
@@ -41,8 +45,5 @@ void test(const std::string &source_file, const std::string &dest_file) {
       }
     }
   }
-}
-
-int main() {
-  test("CppCoreGuidelines.md", "CppCoreGuidelinesWithHighlighting.md");
+  std::cout << "wrote highlighted version to " << dest_file << " successfully\n";
 }
